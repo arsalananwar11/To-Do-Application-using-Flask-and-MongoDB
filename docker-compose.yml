@@ -2,10 +2,9 @@ version: '3.8'
 
 services:
   flask-app:
-    # Build from the Dockerfile in the current directory
     build: .
     ports:
-      - "5001:5000"  # Maps port 5000 inside the container to 5001 on your host
+      - "5000:5000"
     depends_on:
       - db
     environment:
@@ -13,11 +12,11 @@ services:
       - MONGO_PORT=27017
 
   db:
-    image: mongo  # Use the official MongoDB image
+    image: mongo  
     ports:
-      - "27017:27017"  # Maps MongoDB's port to be accessible on your host
+      - "27017:27017"  
     volumes:
-      - mongo-data:/data/db  # Persist data
+      - mongo-data:/data/db
 
 volumes:
-  mongo-data:  # Volume for MongoDB data persistence
+  mongo-data:
