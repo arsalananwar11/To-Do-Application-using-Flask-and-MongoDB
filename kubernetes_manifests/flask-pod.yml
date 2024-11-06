@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flask-app
+spec:
+  containers:
+  - name: flask-app
+    image: arsalananwar11/flask_todo_app:latest
+    ports:
+    - containerPort: 5000
+    env:
+    - name: MONGO_HOST
+      value: "mongo"
+    - name: MONGO_PORT
+      value: "27017"
